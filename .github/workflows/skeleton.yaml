@@ -30,4 +30,4 @@ jobs:
           
       # Run the deploymentyaml file
       - name: K8s Deployment
-        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml
+        run: doctl kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml
