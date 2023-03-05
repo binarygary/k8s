@@ -27,7 +27,13 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      # Setup kubectl
+      - name: Install kubectl
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
           
-      # Run the deploymentyaml file
+      # Run the deployment.yaml file
       - name: K8s Deployment
-        run: doctl kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml
+        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml
