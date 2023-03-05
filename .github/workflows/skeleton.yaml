@@ -42,4 +42,4 @@ jobs:
 
       # Run the deployment.yaml file
       - name: K8s Deployment
-        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml --kubeconfig .kube
+        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml --kubeconfig=.kube
