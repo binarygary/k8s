@@ -38,8 +38,8 @@ jobs:
       # Configure kubectl
       - name: Configure kubectl
         run: |
-          echo ${KUBE_CONFIG} | base64 -d > ~/.kube/config
+          echo ${KUBE_CONFIG} | base64 -d > .kube
 
       # Run the deployment.yaml file
       - name: K8s Deployment
-        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml
+        run: kubectl apply -f $GITHUB_WORKSPACE/.k8s/deployment.yml --kubeconfig .kube
